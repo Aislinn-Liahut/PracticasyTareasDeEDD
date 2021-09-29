@@ -127,7 +127,7 @@ public class Complejidad{
                     //Para filas
                         if(horizontales[k]>0){
                             
-                            ArrayAux[horizontales[k]-1]++;
+                            ArrayAux[horizontales[k]]++;
                             if(ArrayAux[horizontales[k]-1] >2)
                                 return false;
                         }
@@ -136,7 +136,7 @@ public class Complejidad{
 						    //Para columnas
                         verticales[k] = board[k][i];
                         if(verticales[k]>0){
-                            ArrayAux[verticales[k]-1]++;
+                            ArrayAux[verticales[k]]++;
                             if(ArrayAux[verticales[k]-1] >2)
                                 return false;
                         
