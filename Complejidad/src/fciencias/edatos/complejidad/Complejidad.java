@@ -1,6 +1,7 @@
 
 package fciencias.edatos.complejidad;
 import java.util.Arrays;
+
 /**
  * Practica de complejidad
  * @author Celic Aislinn Liahut Ley y Diana Laura Salgado Tirado
@@ -78,43 +79,12 @@ public class Complejidad{
 		return true;
 	}
 
-    public static boolean isSudokuValidOptimizado2(int[][] board){
-		int length = board.length;
-		for (int i = 0; i< length; i++){
-				
-				int[] horizontales = board[i];
+   
 
-				int[] verticales = new int[board.length];
 
-				for(int k=0; k< length; k++){
-					if( i != k && horizontales[i] == horizontales[k]){
-						return false;
-					}
-					verticales[k] = board[k][i];
-
-					if( i != k && verticales[i] == verticales[k]){		
-						return false;
-					}
-				}
-				/* for(int k=0; k < length; k++){
-					verticales[k] = board[k][i];
-				} */
-			/* 	for(int k=0; k< length; k++){
-					if( i != k && verticales[i] == verticales[k]){				
-						return false;
-					}	
-				} */	
-			}
-			return true;
-	}
- /**
-    * Verifica si un tablero contiene los números desde 0 hasta n-1 en cada fila y cada columna.
-    * @param board el tablero de nxn que contiene elementos dentro del rango [0, n-1].
-    * @return true si el tablero contiene los números desde 0 hasta n-1 en cada fila y columna,
-	* false en otro caso.
-    */
     public static boolean isValidBoardOptimizado(int[][] board){
 		int length = board.length;
+        boolean verificador=false;
 		for (int i = 0; i< length; i++){
 				
 				int[] horizontales = board[i];
@@ -124,29 +94,33 @@ public class Complejidad{
 
 				for(int k=0; k< length; k++){
 
-                    //Para filas
-                        if(horizontales[k]>0){
-                            
+                        //Para filas
+                        if(horizontales[k]>= 0 && horizontales[k] < length){
+                            verificador = true;
                             ArrayAux[horizontales[k]]++;
-                            if(ArrayAux[horizontales[k]-1] >2)
+                            if(ArrayAux[horizontales[k]] >2)
                                 return false;
                         }
 
                 
-						    //Para columnas
+						//Para columnas
+                        
                         verticales[k] = board[k][i];
-                        if(verticales[k]>0){
+                        if(horizontales[k]>= 0 && horizontales[k] < length){
+                            verificador=true;
                             ArrayAux[verticales[k]]++;
-                            if(ArrayAux[verticales[k]-1] >2)
+                            if(ArrayAux[verticales[k]] >2)
                                 return false;
                         
                         }
+
+                        //System.out.println("hola"+Arrays.toString(ArrayAux));
 
                         
 					}
                     
 			}
-			return true;
+			return verificador;
 	}
 
 
@@ -200,7 +174,7 @@ public class Complejidad{
 
 		int[][] boardB = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
 		boolean boardResultB = isValidBoard(boardB);
-		System.out.println("El tablero B es válido: "+boardResultB);
+		System.out.println("El tablero B es válido: "+ boardResultB);
 
 		int[][] boardC = ArrayReader.readMatrix(directorio2 + "BoardC.txt");
 		boolean boardResultC = isValidBoard(boardC);
@@ -210,21 +184,23 @@ public class Complejidad{
 		boolean boardResultD = isValidBoard(boardD);
 		System.out.println("El tablero D es válido: "+boardResultD);
 
-        int[][] boardA2 = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
-		boolean boardResultA2 = isValidBoardOptimizado(boardA2);
+		//int[][] boardA = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
+		boolean boardResultA2 = isValidBoardOptimizado(boardA);
 		System.out.println("El tablero A es válido: "+boardResultA2);
 
-	 	int[][] boardB2 = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
+		//int[][] boardB = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
 		boolean boardResultB2 = isValidBoardOptimizado(boardB);
 		System.out.println("El tablero B es válido: "+boardResultB2);
 
-		int[][] boardC2 = ArrayReader.readMatrix(directorio2 + "BoardC.txt");
-		boolean boardResultC2 = isValidBoardOptimizado(boardC2);
+		//int[][] boardC = ArrayReader.readMatrix(directorio2 + "BoardC.txt");
+		boolean boardResultC2 = isValidBoardOptimizado(boardC);
 		System.out.println("El tablero C es válido: "+boardResultC2);
 
-		int[][] boardD2 = ArrayReader.readMatrix(directorio2 + "BoardD.txt");
-		boolean boardResultD2 = isValidBoardOptimizado(boardD2);
-		System.out.println("El tablero D es válido: "+boardResultD2); 
+		//int[][] boardD = ArrayReader.readMatrix(directorio2 + "BoardD.txt");
+		boolean boardResultD2 = isValidBoardOptimizado(boardD);
+		System.out.println("El tablero D es válido: "+boardResultD2);
+ 
+        
 
 
 		// EJEMPLOS DE ACTIVIDAD 3
@@ -238,7 +214,7 @@ public class Complejidad{
 		System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
 		System.out.println("Arreglo C1 rotado 6 veces: " + Arrays.toString(arrayC1));
 
-		System.out.println("\n\nFIN DE EJEMPLOS\n");
+		System.out.println("\n\nFIN DE EJEMPLOS :) \n");
 	}
 
     /* public static void main(String[] args) {
