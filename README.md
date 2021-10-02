@@ -2,7 +2,7 @@
 
 ## Practicas
 
-### Celic Aislinn Liahut Ley
+### Celic Aislinn Liahut Ley y Diana Laura Salgado Tirado
 
 1. [Complejidad](https://github.com/Aislinn-Liahut/PracticasyTareasDeEDD/tree/master/01.%20Complejidad): Implementación de práctica 1
 
