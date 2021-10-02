@@ -1,5 +1,4 @@
 package fciencias.edatos.complejidad;
-
 import java.util.Arrays;
 
 /**
@@ -47,7 +46,6 @@ public class Complejidad {
   }
 
   /**
-<<<<<<< HEAD
    * Hace la mezcla de dos arreglos ordenados desde la primera posición hasta
    * una posición límite (De manera más optima)
    * @param array1 el primer arreglo a mezlar
@@ -62,23 +60,11 @@ public class Complejidad {
     int[] array2,
     int m
   ) {
-=======
-	* Hace la mezcla de dos arreglos ordenados desde la primera posición hasta
-	* una posición límite (De manera más optima)
-	* @param array1 el primer arreglo a mezlar
-	* @param n el límite de mezcla del primer arreglo
-	* @param array2 el segundo arreglo a mezclar
-	* @param m el límite de mezcla del segundo arreglo.
-	* @return un arreglo ordenado de longitud m+n con la mezcla definida.
-	*/
-	public static int[] mergeSortedArrayOptimizado(int[] array1, int n, int[] array2, int m){
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
     if (n > array1.length || m > array2.length) throw new RuntimeException(
       "Límites no válidos"
     );
 
     int[] result = new int[n + m];
-<<<<<<< HEAD
     int pn = 0; // Apuntador del arreglo 1
     int pm = 0; // Apuntador del arreglo 2
     int pr = 0; // Apuntador del arreglo result
@@ -111,43 +97,8 @@ public class Complejidad {
     return result;
   }
 
-=======
-    int pn=0; // Apuntador del arreglo 1
-    int pm=0; // Apuntador del arreglo 2
-    int pr=0; // Apuntador del arreglo result
-		
-    // Acomodar y comparar al mismo tiempo
-    for(;pr<=result.length-1;pr++){
-    
-       
-      // Por si pn ya reccorio hasta pn-1 y pm aún no
-      if(pn==n){
-        result[pr]=array2[pm];
-        pm++;
-      continue; // Para continuar con las iteraciones solo agregando los elementos de array 2 
-      }
-      // Por si pm ya reccorio hasta pm-1 y pn aún no
-      if(pm==m){
-        result[pr]=array1[pn];
-        ++pn;
-      continue; // Para continuar con las iteraciones solo agregando los elementos de array 1 
-      }
-      
-      //
-      if(array1[pn]<array2[pm]){
-        result[pr]=array1[pn];
-        ++pn;
-      }
+  /**
 
-      else{
-        result[pr]=array2[pm];
-        pm++;
-      }
-    }
-      
-		return result;
-	}
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
   /**
    * Verifica si un tablero contiene los números desde 0 hasta n-1 en cada fila y cada columna.
    * @param board el tablero de nxn que contiene elementos dentro del rango [0, n-1].
@@ -241,23 +192,6 @@ public class Complejidad {
    */
   public static void rotateArrayOptimizado(int[] num, int position) {
     int[] nuevo = new int[num.length];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
-   
-    int n=num.length
-    for(int i=0;i<n;i++){
-      int nuevoLugar=i+n-position;
-      nuevo[nuevoLugar]=num[i];
-    }
-    // deja de funcionar cuando i=position
-
-<<<<<<< HEAD
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
-
-    /** 
     int modulo = position % num.length;
     // System.out.println(position % num.length);
     for (int i = 0; i < num.length; i++) {
@@ -271,12 +205,7 @@ public class Complejidad {
       // System.out.print(" "+nuevo[i]);
       modulo++;
     }
-<<<<<<< HEAD
-=======
-    num=nuevo;
-*/
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
-    
+
     for (int i = 0; i < num.length; i++) {
       num[i] = nuevo[i];
     }
@@ -284,47 +213,15 @@ public class Complejidad {
 
   public static void main(String[] args) {
     /*   String directorio1 = "Examples/ArrayExamples/";
-=======
 
-    /** 
-    int modulo = position % num.length;
-
-    for(int i = 0; i< num.length; i++ ){
-    //  System.out.println("es" +modulo+"");
-      if(modulo == num.length){
-        modulo = 0;
-      
-      }
-
-  
-      nuevo[i] = num[modulo];
-      //System.out.print(""+nuevo[i]+"");
-     
-   
-      modulo++;
-     
-      
-    }
-    num=nuevo;
-*/
-    
-  }
-
-
-  //13,29,58,59,74,90,91
-  
-
-  public static void main(String[] args) {
-  /*   String directorio1 = "Examples/ArrayExamples/";
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
     String directorio2 = "Examples/BoardExamples/";  */
 
     String directorio1 = "Tests/ArrayTests/";
-    String directorio2 = "Tests/BoardTests/"; 
+    String directorio2 = "Tests/BoardTests/";
 
     // EJEMPLOS DE ACTIVIDAD 1
     System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
- 
+
     ///--- Primer algoritmo
     int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
     int[] arrayA2 = ArrayReader.readArray(directorio1 + "ArrayA2.txt");
@@ -435,15 +332,12 @@ public class Complejidad {
     System.out.println(
       "El algoritmo 2 se tardó: " + (fin - inicio) + " milisegundos."
     );
-
     // EJEMPLOS DE ACTIVIDAD 2
-<<<<<<< HEAD
     /*  System.out.println("\nEJEMPLOS DE ACTIVIDAD 2\n"); 
 
-=======
-    System.out.println("\nEJEMPLOS DE ACTIVIDAD 2\n");
+
 /* 
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
+
     int[][] boardA = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
     inicio = System.currentTimeMillis();
     boolean boardResultA = isValidBoard(boardA);
@@ -553,11 +447,8 @@ public class Complejidad {
     System.out.println(
       "El algoritmo 2 se tardó: " + (fin - inicio) + " milisegundos."
     );
-<<<<<<< HEAD
-   */
-=======
-  
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
+
+
     // EJEMPLOS DE ACTIVIDAD 3
     System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
 
@@ -660,35 +551,33 @@ public class Complejidad {
       "El algoritmo 2 se tardó: " + (fin - inicio) + " milisegundos."
     );
 
-<<<<<<< HEAD
-    System.out.println("\n\nFIN DE EJEMPLOS :) \n");
-    /*   // EJEMPLOS DE ACTIVIDAD 3
-	 	System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
-=======
+
+ 
+    /* 
+
+
     System.out.println("\n\nFIN DE EJEMPLOS :) \n");  */
 
     // EJEMPLOS DE ACTIVIDAD 3
-	/* 	System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
-    int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
-    int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
-
+  
+    //int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
+    //int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
+/* 
     rotateArrayOptimizado(arrayA1, 5);
 	
 
 		rotateArray(arrayB1, 0);
 
-		System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
+    System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
     rotateArrayOptimizado(arrayA1, 8);
     System.out.println("Arreglo A1 rotado 8 veces: " + Arrays.toString(arrayA1));
     rotateArrayOptimizado(arrayA1, 12);
     System.out.println("Arreglo A1 rotado 12 veces: " + Arrays.toString(arrayA1));
-<<<<<<< HEAD
-		System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1)); */
-=======
-		System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
-	 */
->>>>>>> ea157fffb06a963faa2684fc8715f25eb1631df7
+
+    System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1)); 
+
+    System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
+ */
 
   }
 }
