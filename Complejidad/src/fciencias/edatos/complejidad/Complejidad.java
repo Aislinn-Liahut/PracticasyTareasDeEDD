@@ -190,7 +190,15 @@ public class Complejidad {
   public static void rotateArrayOptimizado(int[] num, int position) {
     int[] nuevo = new int[num.length];
    
+    int n=num.length
+    for(int i=0;i<n;i++){
+      int nuevoLugar=i+n-position;
+      nuevo[nuevoLugar]=num[i];
+    }
+    // deja de funcionar cuando i=position
 
+
+    /** 
     int modulo = position % num.length;
 
     for(int i = 0; i< num.length; i++ ){
@@ -210,7 +218,7 @@ public class Complejidad {
       
     }
     num=nuevo;
-
+*/
     
   }
 
